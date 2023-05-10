@@ -1,0 +1,36 @@
+.Card{
+    position: absolute;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    margin: 0;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    color: rgb(6, 13, 77);
+    width: 500px;
+    height: 400px;
+    text-align: center;
+}
+
+.Fuerza{
+    top: 50px;
+    left: 50px;
+}
+
+.Distancia{
+    top: 50px;
+    left: 600px;
+}
+
+.Temperatura{
+    top: 50px;
+    left: 1150px;
+}
+
+.TV{
+    height: 200px;
+    width: 1600px;
+    left: 50px;
+    top: 490px;
+}
