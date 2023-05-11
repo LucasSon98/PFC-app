@@ -1,16 +1,21 @@
 .Card{
     position: absolute;
     display: flex;
-    flex: 1 1 auto;
-    flex-direction: column;
+    flex-flow: column wrap;
     margin: 0;
     background-color: white;
     border: 3px solid black;
     border-radius: 10px;
     color: rgb(6, 13, 77);
     width: 500px;
-    height: 400px;
+    height: 250px;
     text-align: center;
+
+}
+
+.card-title{
+    flex: 1 1 auto;
+    margin-bottom: 0px;
 }
 
 .Fuerza{
@@ -29,8 +34,8 @@
 }
 
 .TV{
-    height: 200px;
+    height: 150px;
     width: 1600px;
     left: 50px;
-    top: 490px;
+    top: 350px;
 }
