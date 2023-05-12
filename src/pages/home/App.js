@@ -4,8 +4,6 @@ import HomeButtons from './HomeButtons';
 import HomeLogo from './HomeLogo';
 
 function HomePage() {
-
-
   return (
     <div className="Home">
       <Layout>

@@ -1,8 +1,8 @@
-const Input = ({labelName}) => {
+const Input = ({labelName, value}) => {
     return (
         <div className="Input">
             <label htmlFor="Input">{`${labelName}: `}</label>
-            <input type="text" name="Input" />
+            <input type="text" name="Input" value={value}/>
         </div>
     );
 }

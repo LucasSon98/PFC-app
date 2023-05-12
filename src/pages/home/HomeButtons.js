@@ -1,12 +1,17 @@
 import DefaultButton from '../../componentes/DefaultButton';
 import './HomeButtons.scss'
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { Server } from '../../context';
 
 const HomeButtons = () => {
     const navigate = useNavigate();
 
+    const {socket} = useContext(Server);
+
     const onClickConfig = () => {
-        navigate('/config')
+        navigate('/config');
+        socket.emit("config", {message: "Holis"});
     }
 
 
