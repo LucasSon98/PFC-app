@@ -1,55 +1,69 @@
-import { useNavigate } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
-
-import Card from "../../componentes/Card";
-import Layout from "../../componentes/Layout";
-import ConfigInputs from "./ConfigInputs";
-import DefaultButton from "../../componentes/DefaultButton";
-import Container from "../../componentes/Container";
+import { useContext,  useState, useRef } from "react";
 import { Server } from "../../context";
 
+import Layout from "../../componentes/Layout";
+import UpperConfigs from "./UpperConfigs";
+import LowerConfigs from "./LowerConfigs";
+import ConfigFooter from "./ConfigFooter";
+import ConfigHeader from "./ConfigHeader";
 
 const ConfigPage = () => {
     const {socket} = useContext(Server);
-    const [fumax, setFumax] = useState(undefined);
-    const navigate = useNavigate();
+    const [showConfig, setShowConfig] = useState(false);
+    const null_data = {FC: null, FM: null, FG: null, DC: null, DM: null, DG: null, TT: null, VC: null, VM: null, VG: null};
+    const [variables, setVariables] = useState(null_data);
+    const [variablesSend, setVariablesSend] = useState(null_data);
+    const isComplete = useRef(false);
+    
+    const SaveData = (data) => {
+        socket.off('Data');
+        setVariables((prev_variables) => {
+            prev_variables.FC = data.CFC;
+            prev_variables.FM = data.CFM;
+            prev_variables.FG = data.CFG;
+            prev_variables.DC = data.CDC;
+            prev_variables.DM = data.CDM;
+            prev_variables.DG = data.CDG;
+            prev_variables.TT = data.CTT;
+            prev_variables.VC = data.CVC;
+            prev_variables.VM = data.CVM;
+            prev_variables.VG = data.CVG;
 
-    const handleVolverButton = () => {
-        navigate("/");
-    };
-
-    useEffect(() => {
-        socket.on("FUMax", (data)=> {
-            setFumax(data.message);
-            console.log("Dato recibido");
+            return prev_variables;
         });
-    },[socket])
+        setShowConfig(true);
+    }
+
+    if(!isComplete.current){
+        (function () {
+            socket.on("Data", (data)=> {
+                SaveData(data);
+            });
+        })();
+    }
+
+    const InputChangeHandler = (e) => {
+        if(e.target.value){
+            setVariablesSend((prev_variables) => {
+                prev_variables[e.target.id] = Number(e.target.value);
+                return prev_variables;
+            })
+        }
+    }
+    
+    
+    const pageContent = <Layout>
+                            <ConfigHeader/>
+                            <UpperConfigs variables={variables} inputChangeHandler = {InputChangeHandler}/>
+                            <LowerConfigs variables={variables} inputChangeHandler = {InputChangeHandler}/>
+                            <ConfigFooter variables={variablesSend}/>
+                        </Layout>;
+    
+    const loadingContent = <h1>Loading...</h1>
 
     return (
-        <div className="ConfigPage">
-            <Layout>
-                <p>Parametros</p>
-                <DefaultButton onClick={handleVolverButton} button_text={"Volver"}/>
-                <Container>
-                    <Card cardTitle={"Fuerza"} cardClass={"Fuerza"}>
-                        <ConfigInputs className={"column-align"} max={fumax}/>
-                    </Card>
-
-                    <Card cardTitle={"Distancia"} cardClass={"Distancia"}>
-                        <ConfigInputs className={"column-align"} max={0}/>
-                    </Card>
-
-                    <Card cardTitle={"Temperatura"} cardClass={"Temperatura"}> 
-                        <ConfigInputs className={"column-align"} max={0}/>
-                    </Card>
-                </Container>
-                <Container>
-                    <Card cardTitle={"Tiempo de Vibración"} cardClass={"TV"}>
-                        <ConfigInputs className={"row-align"}/>
-                    </Card>
-                </Container>
-                <DefaultButton button_text={"Enviar Configuracion"}/>
-            </Layout>
+        <div className="config-page">
+            {showConfig ? pageContent : loadingContent}
         </div>
         
     );

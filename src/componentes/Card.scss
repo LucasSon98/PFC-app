@@ -1,5 +1,5 @@
-.Card{
-    position: absolute;
+.card{
+    position: relative;
     display: flex;
     flex-flow: column wrap;
     margin: 0;
@@ -18,24 +18,31 @@
     margin-bottom: 0px;
 }
 
-.Fuerza{
-    top: 50px;
-    left: 50px;
+.on{
+    background-color: white;
 }
 
-.Distancia{
-    top: 50px;
-    left: 600px;
+.off{
+    background-color: #C4C2C4;
 }
 
-.Temperatura{
-    top: 50px;
-    left: 1150px;
-}
+// .Fuerza{
+//     flex: 1 1 auto;
+// }
 
-.TV{
-    height: 150px;
-    width: 1600px;
-    left: 50px;
-    top: 350px;
-}
+// .Distancia{
+//     flex: 2 2 auto;
+// }
+
+// .Temperatura{
+//     flex: 1 1 auto;
+// }
+
+// .TV{
+//     height: 150px;
+//     width: 1600px;
+//     left: 50px;
+//     top: 350px;
+// }
+
+

@@ -1,4 +1,4 @@
-import DefaultButton from '../../componentes/DefaultButton';
+import BigButton from '../../componentes/BigButton';
 import './HomeButtons.scss'
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
@@ -10,16 +10,25 @@ const HomeButtons = () => {
     const {socket} = useContext(Server);
 
     const onClickConfig = () => {
-        navigate('/config');
-        socket.emit("config", {message: "Holis"});
+        navigate('/configurar');
+        socket.emit("configurar", {message: "Holis"});
+    }
+
+    const onClickAnalyze = () => {
+        navigate('/analizar');
+        // socket.emit("config", {message: "Holis"});
+    }
+
+    const onClickCalibrar = () => {
+        navigate('/calibrar');
+        // socket.emit("config", {message: "Holis"});
     }
 
 
     return (
         <div className='HomeButtons'>
-            <DefaultButton onClick={onClickConfig} button_text={"Config"}/>
-            <DefaultButton button_text={"Calibrate"}/>
-            <DefaultButton button_text={"Analyse"}/>
+            <BigButton onClick={onClickConfig} button_text={"Configurar"}/>
+            <BigButton onClick={onClickAnalyze} button_text={"Analizar"}/>
         </div>
     );
 }

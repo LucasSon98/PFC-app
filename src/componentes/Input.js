@@ -1,8 +1,13 @@
-const Input = ({labelName, value}) => {
+const Input = ({labelName, value, id, inputChangeHandler}) => {
+    const InputBlurHandler = (e) => {
+        if(e.target.value === ""){
+            e.target.value = e.target.defaultValue;
+        }
+    }
     return (
         <div className="Input">
             <label htmlFor="Input">{`${labelName}: `}</label>
-            <input type="text" name="Input" value={value}/>
+            <input id={id} type="text" name="Input" onBlur={InputBlurHandler} defaultValue={value} onChange={inputChangeHandler}/>
         </div>
     );
 }
