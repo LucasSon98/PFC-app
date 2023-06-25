@@ -16,6 +16,12 @@
 .card-title{
     flex: 1 1 auto;
     margin-bottom: 0px;
+    height: 30px;
+    flex: 1 1 1;
+}
+
+.card-content{
+    flex: 5 5 1;
 }
 
 .on{

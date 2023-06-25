@@ -8,7 +8,7 @@ import Card from "../../componentes/Card";
 
 import './AnalyzeBody.scss';
 
-const AnalyzeBody = ({toggles, toggleHandlers}) => {
+const AnalyzeBody = ({toggles, toggleHandlers, updateMaxValues, updateMeanValues}) => {
     const {socket} = useContext(Server);
 
     const dummy_data = [
@@ -32,7 +32,6 @@ const AnalyzeBody = ({toggles, toggleHandlers}) => {
     let [startGraph, setStartGraph] = useState(false);
 
     const SaveData = (data) => {
-    
         setTime((prevTime) => {
             if (prevTime !== null){
                 return prevTime+10;
@@ -46,11 +45,13 @@ const AnalyzeBody = ({toggles, toggleHandlers}) => {
             prev_data.Medio = data.AB;
             prev_data.Índice = data.AC;
             prev_data.Pulgar = data.AD;
-            prev_data.Temperatura = data.AE;
+            prev_data.Temperatura = data.AE.toFixed(2);
             prev_data.Distancia = data.AF;
 
             return prev_data
-        }); 
+        });
+
+        updateMaxValues(data);
         
     }
 
@@ -65,6 +66,10 @@ const AnalyzeBody = ({toggles, toggleHandlers}) => {
         }
             
     },[time,newData])
+
+    useEffect(() => {
+        updateMeanValues(graphData);
+    }, [graphData,updateMeanValues])
 
     const onStartHandler = () => {
         setStartGraph(true);
@@ -81,8 +86,6 @@ const AnalyzeBody = ({toggles, toggleHandlers}) => {
         socket.off('Data');
     }
 
-
-
     return (
         <div className='analyze-body'>
             <div className='analyze-graph'>
@@ -90,10 +93,11 @@ const AnalyzeBody = ({toggles, toggleHandlers}) => {
                 <AnalyzeToggles toggles={toggles} toggleHandlers={toggleHandlers}/>
                 <div className='reading-cards'>
                     <Card cardTitle={'Distancia'}>
-                        {graphData.Distancia}{' mm'}
+                        {graphData[graphData.length-1].Distancia}{' mm'}
+
                     </Card>
                     <Card cardTitle={'Temperatura'}>
-                        {graphData.Temperatura}{' °C'}
+                        {graphData[graphData.length-1].Temperatura}{' °C'}
                     </Card>
 
                 </div>

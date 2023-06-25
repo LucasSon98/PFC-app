@@ -21,7 +21,7 @@ const Graph = ({data,toggle1,toggle2,toggle3,toggle4,toggle5,toggle6}) => {
                 >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis domain={[0,1]} dataKey="tiempo" label={{ value: 'Tiempo(ms)', position: 'insideBottomRight', offset: 0 }}/>
-                    <YAxis domain={[0,2.5]} ticks={[0.1,0.5,1,1.5,2,2.5]} label={{ value: 'Amplitud', angle: -90, position: 'insideLeft' }}/>
+                    <YAxis domain={[0,100]} ticks={[0,25,50,75,100]} label={{ value: 'Nivel de Fuerza (%)', angle: -90, position: 'insideLeft' }}/>
                     <Tooltip />
                     <Legend />
                     {toggle1 && <Line type="monotone" dataKey="Anular" stroke="#FF2D00" activeDot={{ r: 8 }} />}
