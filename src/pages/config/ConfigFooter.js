@@ -12,7 +12,7 @@ const ConfigFooter = ({variables}) => {
 
     return (
         <div className="config-footer">
-            <BigButton button_text={"Enviar Configuracion"} onClick={EnviarConfigHandler}/>
+            <BigButton button_text={"Enviar Configuración"} onClick={EnviarConfigHandler}/>
         </div>    
     );
 }

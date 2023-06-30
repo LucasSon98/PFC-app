@@ -6,6 +6,7 @@ import UpperConfigs from "./UpperConfigs";
 import LowerConfigs from "./LowerConfigs";
 import ConfigFooter from "./ConfigFooter";
 import ConfigHeader from "./ConfigHeader";
+import './App.scss';
 
 const ConfigPage = () => {
     const {socket} = useContext(Server);

@@ -14,14 +14,21 @@
 }
 
 .card-title{
-    flex: 1 1 auto;
-    margin-bottom: 0px;
-    height: 30px;
-    flex: 1 1 1;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 30px;
+    font-weight: 700;
 }
 
 .card-content{
-    flex: 5 5 1;
+    display: flex;
+    flex: 0 0 auto;
+    height: 80%;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .on{

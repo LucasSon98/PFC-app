@@ -12,11 +12,19 @@ const ConfigHeader = () => {
     const handleVolverButton = () => {
         navigate("/");
     };
+    const handleAnalizarButton = () => {
+        navigate("/analizar");
+    };
 
     return (
         <div className="config-header">
-            <SmallButton onClick={handleVolverButton} button_text={"Volver"}/>
-            <Title TitleText="Parametros"/>
+            <div className='volver-button'>
+                <SmallButton onClick={handleVolverButton} button_text={"Volver"}/>
+            </div>
+            <Title TitleText="Parámetros"/>
+            <div className='volver-button'>
+                <SmallButton onClick={handleAnalizarButton} button_text={"Analizar"}/>
+            </div>
         </div>    
     );
 }

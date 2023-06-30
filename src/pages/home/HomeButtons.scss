@@ -1,8 +1,36 @@
-.HomeButtons{
-    display: inline-block;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+@import '../../styles/colors.scss';
 
+.HomeButtons{
+    display: flex;
+    flex: 0 0 auto;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+    justify-content: center;
+    
+    .config-button{
+        width: 15%;
+        display: flex;
+        justify-content: center;
+    }
+    .analyze-button{
+        width: 15%;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    button{
+        background-color: $blue2;
+        font-weight: 700;
+        color: $beige1;
+        font-size: 25px;
+        width: 200px;
+        height: 60px;
+
+    }
+
+    button:hover{
+        border: 2px solid $beige1;
+    }
 }

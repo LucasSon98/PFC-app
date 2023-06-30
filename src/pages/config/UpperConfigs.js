@@ -1,23 +1,40 @@
 import Card from "../../componentes/Card";
 import ConfigInputs from "./ConfigInputs";
 import './UpperConfigs.scss';
-import TempInputs from './TempInputs';
-
 
 const UpperConfigs = ({variables, inputChangeHandler}) => {
+    const cards_data = [
+        {
+        title: "Fuerza (%)",
+        input_data:[
+            {key: "FC", label: "Umbral Mínimo", value: variables.FC},
+            {key: "FM", label: "Umbral Medio", value: variables.FM},
+            {key: "FG", label: "Umbral Máximo", value: variables.FG},
+        ]},
+        {
+        title: "Distancia (mm)",
+        input_data:[
+            {key: "DC", label: "Umbral Mínimo", value: variables.DC},
+            {key: "DM", label: "Umbral Medio", value: variables.DM},
+            {key: "DG", label: "Umbral Máximo", value: variables.DG},
+        ]},
+        {
+        title: "Temperatura (°C)",
+        input_data:[
+            {key: "TT", label: "Umbral", value: variables.TT},
+        ]},
+        
+    ]
     return (
         <div className="UpperConfigs">
-            <Card cardTitle={"Fuerza (%)"} cardClass={"Fuerza"}>
-                <ConfigInputs className={"column-align"} min={variables.FC} med={variables.FM}  max={variables.FG} keys={["FC","FM","FG"]} inputChangeHandler={inputChangeHandler}/>
-            </Card>
-
-            <Card cardTitle={"Distancia (mm)"} cardClass={"Distancia"}>
-                <ConfigInputs className={"column-align"} min={variables.DC} med={variables.DM}  max={variables.DG} keys={["DC","DM","DG"]} inputChangeHandler={inputChangeHandler}/>
-            </Card>
-
-            <Card cardTitle={"Temperatura (°C)"} cardClass={"Temperatura (°C)"}> 
-                <TempInputs className={"column-align"} value={variables.TT}  keys={"TT"} inputChangeHandler={inputChangeHandler}/>
-            </Card>
+            {
+                cards_data.map((card_data) => {
+                    return(
+                    <Card cardTitle={card_data.title}>
+                        <ConfigInputs input_data={card_data.input_data} inputChangeHandler={inputChangeHandler}/>
+                    </Card>)
+                })
+            }
         </div>  
     );
 }

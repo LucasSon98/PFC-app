@@ -1,12 +1,12 @@
 import Input from "../../componentes/Input";
 import "./ConfigInputs.scss";
 
-const ConfigInputs = ({className, min, med, max, keys, inputChangeHandler}) => {
+const ConfigInputs = ({input_data, inputChangeHandler}) => {
     return (
-        <div className={`config-inputs ${className}`}>
-            <Input id={keys[0]} labelName={"Umbral Minimo"} value={min} inputChangeHandler={inputChangeHandler}></Input>
-            <Input id={keys[1]} labelName={"Umbral Medio"} value={med} inputChangeHandler={inputChangeHandler}></Input>
-            <Input id={keys[2]} labelName={"Umbral Máximo"} value={max} inputChangeHandler={inputChangeHandler}></Input>               
+        <div className={`config-inputs`}>
+           { input_data.map((data) => {
+               return <Input id={data.key} labelName={data.label} value={data.value} inputChangeHandler={inputChangeHandler}></Input>
+            })}            
         </div>
         );
 }

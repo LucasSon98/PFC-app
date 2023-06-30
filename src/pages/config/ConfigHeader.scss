@@ -1,10 +1,33 @@
+@import '../../styles/colors.scss';
+
 .config-header{
     position: relative;
     display:flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 100px 20px 20px;
+    padding: 10px 30px 5px 30px;
+    margin-bottom: 50px;
+    background-color: $beige1;
+    border-bottom: 3px solid $brown1;
     .title{
         width: 100vw;
+    }
+
+    .volver-button{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        button{
+            background-color: $blue5;
+            font-size: 20px;
+            font-weight: 700;
+            color: $beige1;
+            height: 40px;
+            margin-top: 5px;
+        }
+    }
+
+    .title{
+        color: $blue5;
     }
 }

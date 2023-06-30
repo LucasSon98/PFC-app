@@ -1,0 +1,17 @@
+@import '../../styles/colors.scss';
+
+.config-page{
+    .Layout{
+        background-color: $blue5;
+    }
+
+    button:hover{
+        border: 2px solid $beige1;
+    }
+
+    .card{
+        background-color: $beige1;
+        border-radius: 20px;
+        border-color: $brown1;
+    }
+}

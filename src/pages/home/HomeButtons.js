@@ -19,16 +19,16 @@ const HomeButtons = () => {
         // socket.emit("config", {message: "Holis"});
     }
 
-    const onClickCalibrar = () => {
-        navigate('/calibrar');
-        // socket.emit("config", {message: "Holis"});
-    }
-
 
     return (
         <div className='HomeButtons'>
-            <BigButton onClick={onClickConfig} button_text={"Configurar"}/>
-            <BigButton onClick={onClickAnalyze} button_text={"Analizar"}/>
+            <div className='config-button'>
+                <BigButton onClick={onClickConfig} button_text={"Configurar"}/>
+
+            </div>
+            <div className='analyze-button'>
+                <BigButton onClick={onClickAnalyze} button_text={"Analizar"}/>
+            </div>
         </div>
     );
 }

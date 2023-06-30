@@ -1,3 +1,5 @@
+@import '../../styles/colors.scss';
+
 .UpperConfigs{
     position: relative;
     display: flex;
@@ -5,4 +7,25 @@
     justify-content: space-evenly;
     width: 100vw;
     height: 260px;
+
+    .config-inputs{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: auto;
+        width: 77%;
+        .Input{
+            margin-bottom: 20px;
+            input{
+                border: 0;
+                background-color: transparent;
+                font-size: 18px;
+                font-weight: 600;
+                border-bottom: 3px solid $blue5;
+                margin-bottom: 5px;
+                text-align: center;
+                width: 200px;
+            }
+        }
+    }
 }

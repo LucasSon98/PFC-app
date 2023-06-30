@@ -1,12 +1,17 @@
 import Card from "../../componentes/Card";
-import VibrInputs from "./VibrInputs";
+import ConfigInputs from "./ConfigInputs";
 import './LowerConfigs.scss';
 
 const LowerConfigs = ({variables, inputChangeHandler}) => {
+    const input_data = [
+        {key: "VC", label: "Vibración Baja", value: variables.VC},
+        {key: "VM", label: "Vibración Media", value: variables.VM},
+        {key: "VG", label: "Vibración Alta", value: variables.VG},
+    ]
     return (
         <div className="LowerConfigs">
             <Card cardTitle={"Tiempo de Vibración"} cardClass={"TV"}>
-                <VibrInputs className={"row-align"} min={variables.VC} med={variables.VM}  max={variables.VG} keys={["VC","VM","VG"]} inputChangeHandler={inputChangeHandler}/>
+                <ConfigInputs input_data={input_data} inputChangeHandler={inputChangeHandler}/>
             </Card>
         </div>
         
