@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import io from 'socket.io-client';
 import { Server } from './context';
 import AnalyzePage from './pages/analyze/App';
-import CalibrarPage from './pages/calibrar/App';
 
 const App = () => {
     const socket = io.connect("http://localhost:3001");
@@ -16,7 +15,6 @@ const App = () => {
                     <Route path='/' element={<HomePage />}/>
                     <Route path='/configurar' element={<ConfigPage/>}/>
                     <Route path='/analizar' element={<AnalyzePage/>}/>
-                    <Route path='/calibrar' element={<CalibrarPage/>}/>
                     <Route path='*' element={<Navigate to='/' replace/>}/>
                 </Routes>
             </Router>

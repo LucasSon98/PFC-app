@@ -4,7 +4,6 @@
     position: relative;
     display: flex;
     justify-content: center;
-
     button{
         background-color: $blue2;
         font-weight: 700;
@@ -12,5 +11,13 @@
         font-size: 25px;
         width: 300px;
         height: 60px;
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+
+    .reestablecer-button{
+        button{
+            width: 370px;
+        }
     }
 }

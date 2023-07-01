@@ -1,3 +1,5 @@
+@import '../../styles/colors.scss';
+
 .analyze-body{
     display: flex;
     flex-direction: column;
@@ -8,6 +10,14 @@
     .buttons{
         display: flex;
         flex-direction: row;
+        button{
+            background-color: $blue2;
+            font-weight: 700;
+            color: $beige1;
+            font-size: 25px;
+            width: 150px;
+            height: 60px;
+        }
     }
 }
 
@@ -28,5 +38,18 @@
         margin-bottom: 20px;
         margin-left: 35px;
         align-items: center;
+    }
+    .card-title{
+        margin: 0;
+        height: 30%;
+    }
+    .card-content{
+        flex-direction: column;
+        height: 70%;
+        justify-content: center;
+        p{
+            margin: 0;
+            margin-bottom: 10px;
+        }
     }
 }

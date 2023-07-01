@@ -2,6 +2,7 @@ import './App.scss';
 import AnalyzeHeader from './AnalyzeHeader';
 import AnalyzeBody from './AnalyzeBody';
 import AnalyzeMeasures from './AnalyzeMeasures';
+import Layout from '../../componentes/Layout';
 
 import { Server } from "../../context";
 // import {flushSync} from 'react-dom';
@@ -102,12 +103,14 @@ const AnalyzePage = () => {
             return {...prev_data};
         })
     }
-
+    
     return (
         <div className='analyze-page '>
-            <AnalyzeHeader handleVolverButton={handleVolverButton}/>
-            <AnalyzeBody toggles={[toggle1,toggle2,toggle3,toggle4,toggle5,toggle6]} toggleHandlers={[toggle1Handle,toggle2Handle,toggle3Handle,toggle4Handle,toggle5Handle,toggle6Handle]} updateMaxValues = {updateMaxValues} updateMeanValues = {updateMeanValues}/>
-            <AnalyzeMeasures toggles={[toggle1,toggle2,toggle3,toggle4,toggle5,toggle6]} max_values={{...max_data}} mean_values={mean_data}/>
+            <Layout>
+                <AnalyzeHeader handleVolverButton={handleVolverButton}/>
+                <AnalyzeBody toggles={[toggle1,toggle2,toggle3,toggle4,toggle5,toggle6]} toggleHandlers={[toggle1Handle,toggle2Handle,toggle3Handle,toggle4Handle,toggle5Handle,toggle6Handle]} updateMaxValues = {updateMaxValues} updateMeanValues = {updateMeanValues}/>
+                <AnalyzeMeasures toggles={[toggle1,toggle2,toggle3,toggle4,toggle5,toggle6]} max_values={{...max_data}} mean_values={mean_data}/>
+            </Layout>
         </div>
     );
 }

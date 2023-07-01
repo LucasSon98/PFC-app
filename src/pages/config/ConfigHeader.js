@@ -19,9 +19,9 @@ const ConfigHeader = () => {
     return (
         <div className="config-header">
             <div className='volver-button'>
-                <SmallButton onClick={handleVolverButton} button_text={"Volver"}/>
+                <SmallButton onClick={handleVolverButton} button_text={"Inicio"}/>
             </div>
-            <Title TitleText="Parámetros"/>
+            <Title TitleText="Configuración de Parámetros"/>
             <div className='volver-button'>
                 <SmallButton onClick={handleAnalizarButton} button_text={"Analizar"}/>
             </div>

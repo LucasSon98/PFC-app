@@ -1,6 +1,13 @@
+@import '../../styles/colors.scss';
+
 .graph{
     position: relative;
     height: 300px;
     width: 60%;
     margin-bottom: 30px;
+    background-color: $beige1;
+    padding: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 2px solid $brown1;
 }

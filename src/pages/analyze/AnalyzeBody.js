@@ -52,26 +52,30 @@ const AnalyzeBody = ({toggles, toggleHandlers, updateMaxValues, updateMeanValues
         });
 
         updateMaxValues(data);
-        
+        updateMeanValues(graphData);
     }
 
 
     useEffect(() => {
-        if(newData){
+        if(!Object.values(newData).every((x) => x === null || x === '')){
             setGraphData((prevData) => {
                 prevData.shift();
                 prevData.push({tiempo: time, ...newData});
                 return prevData
             });
         }
-            
     },[time,newData])
 
     useEffect(() => {
-        updateMeanValues(graphData);
-    }, [graphData,updateMeanValues])
+        if(!Object.values(newData).every((x) => x === null || x === '')){
+            updateMeanValues(graphData);
+        }
+    }, [graphData,updateMeanValues,newData])
 
     const onStartHandler = () => {
+        setTime(0);
+        setNewData(null_data);
+        setGraphData(dummy_data);
         setStartGraph(true);
         socket.on("Data", (data)=> {
             SaveData(data);
@@ -79,10 +83,8 @@ const AnalyzeBody = ({toggles, toggleHandlers, updateMaxValues, updateMeanValues
     }
 
     const onStopHandler = () => {
-        setTime(0);
-        setNewData(null_data);
-        setGraphData(dummy_data);
         setStartGraph(false);
+        setNewData(null_data);
         socket.off('Data');
     }
 
@@ -93,11 +95,10 @@ const AnalyzeBody = ({toggles, toggleHandlers, updateMaxValues, updateMeanValues
                 <AnalyzeToggles toggles={toggles} toggleHandlers={toggleHandlers}/>
                 <div className='reading-cards'>
                     <Card cardTitle={'Distancia'}>
-                        {graphData[graphData.length-1].Distancia}{' mm'}
-
+                        {`${graphData[graphData.length-1].Distancia} mm`}
                     </Card>
                     <Card cardTitle={'Temperatura'}>
-                        {graphData[graphData.length-1].Temperatura}{' °C'}
+                        {`${graphData[graphData.length-1].Temperatura} °C`}
                     </Card>
 
                 </div>
@@ -105,7 +106,6 @@ const AnalyzeBody = ({toggles, toggleHandlers, updateMaxValues, updateMeanValues
             <div className='buttons'>
                 {!startGraph && <BigButton button_text={"START"} onClick={onStartHandler}/>}
                 {startGraph && <BigButton button_text={"STOP"} onClick={onStopHandler}/>}
-                {/* {startGraph && <BigButton button_text={"STOP"} onClick={onStopHandler}/>} */}
             </div>
         </div>
         
