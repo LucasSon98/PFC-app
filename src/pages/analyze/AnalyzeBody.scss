@@ -38,18 +38,18 @@
         margin-bottom: 20px;
         margin-left: 35px;
         align-items: center;
-    }
-    .card-title{
-        margin: 0;
-        height: 30%;
-    }
-    .card-content{
-        flex-direction: column;
-        height: 70%;
-        justify-content: center;
-        p{
+        .card-title{
             margin: 0;
-            margin-bottom: 10px;
+            height: 30%;
+        }
+        .card-content{
+            flex-direction: column;
+            height: 70%;
+            justify-content: center;
+            margin: 0;
+            font-size: 25px;
+
         }
     }
+    
 }

@@ -60,7 +60,7 @@ const ConfigPage = () => {
                             <ConfigFooter variables={variablesSend}/>
                         </Layout>;
     
-    const loadingContent = <Layout><div className="loader"><h1>Loading...</h1></div></Layout>
+    const loadingContent = <Layout><div className="loader"><h1>Cargando Parámetros...</h1></div></Layout>
 
     return (
         <div className="config-page">

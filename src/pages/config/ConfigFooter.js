@@ -16,7 +16,7 @@ const ConfigFooter = ({variables}) => {
                 <BigButton button_text={"Guardar Configuración"}/>
             </div>
             <div className="reestablecer-button">
-                <BigButton button_text={"Reestablecer Configuración"}/>
+                <BigButton button_text={"Restablecer Configuración"}/>
             </div>
             <div className="enviar-button">
                 <BigButton button_text={"Enviar Configuración"} onClick={EnviarConfigHandler}/>
