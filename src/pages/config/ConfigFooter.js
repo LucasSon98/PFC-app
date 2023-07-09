@@ -8,6 +8,8 @@ const ConfigFooter = ({variables}) => {
 
     const EnviarConfigHandler = () => {
         socket.emit("Variables",variables);
+        console.log("Enviando datos:\n")
+        console.log(variables);
     }
 
     return (
